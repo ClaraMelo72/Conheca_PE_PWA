@@ -47,7 +47,6 @@ conheca-pernambuco-pwa/
 - ✅ PWA (Progressive Web App)
 - ✅ Recurso de hardware (Geolocalização) 
 - ✅ API pública (OpenStreetMap)
-- ✅ Não é app de clima
 
 ---
 
