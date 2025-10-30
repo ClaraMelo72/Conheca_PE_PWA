@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conheça PE - PWA</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1B5E20">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏝️ Conheça PE</h1>
+            <p class="subtitle">Descubra informações sobre cidades de Pernambuco</p>
+            <div class="pwa-badge">📱 PWA Instalável</div>
+        </header>
+
+        <main>
+            <div class="card">
+                <div class="card-header">
+                    <h2>📍 Minha Localização</h2>
+                </div>
+                <div class="card-body">
+                    <button id="location-btn" class="location-btn">
+                        🗺️ Descobrir Minha Cidade
+                    </button>
+                    
+                    <div id="location-status" class="location-status hidden">
+                        <div class="status-content">
+                            <span class="status-icon">📍</span>
+                            <span class="status-text">Detectando sua localização...</span>
+                        </div>
+                    </div>
+                    
+                    <div id="result-container" class="result-container">
+                        <div class="welcome-message">
+                            <h3>Bem-vindo! 👋</h3>
+                            <p>Clique no botão para descobrir informações sobre sua cidade em Pernambuco.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2>🏙️ Cidades de PE</h2>
+                </div>
+                <div class="card-body">
+                    <div class="cities-grid">
+                        <div class="city-card" data-city="Recife">
+                            <h3>Recife</h3>
+                            <p>Capital • Veneza Brasileira</p>
+                        </div>
+                        <div class="city-card" data-city="Olinda">
+                            <h3>Olinda</h3>
+                            <p>Patrimônio Mundial • Carnaval</p>
+                        </div>
+                        <div class="city-card" data-city="Caruaru">
+                            <h3>Caruaru</h3>
+                            <p>Maior São João • Capital do Agreste</p>
+                        </div>
+                        <div class="city-card" data-city="Petrolina">
+                            <h3>Petrolina</h3>
+                            <p>Vale do São Francisco • Fruticultura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>PWA com Geolocalização • Foco em Pernambuco</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <!-- PWA Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado');
+                    })
+                    .catch(error => {
+                        console.log('❌ Erro Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
